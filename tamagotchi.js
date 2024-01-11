@@ -30,17 +30,22 @@ class Tamagotchi {
 		this.full += 2;
 		this.energy--;
 
-		this.full > 10 ? (this.sick = true) : (this.sick = false);
+		if (this.full > 10) {
+			this.sick = true;
+		}
 	}
 
 	medicate() {
 		if (this.sick === true) {
 			this.full = 9;
 			this.energy - 3;
-		} else {
-			console.log(`refusal to take medicine.`);
-			this.energy--;
 		}
+		if (this.sick === false) {
+			console.log(`refusal to take medicine`);
+			this.energy - 1;
+		}
+
+		this.sick = false;
 	}
 }
 
